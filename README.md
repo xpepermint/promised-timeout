@@ -22,7 +22,8 @@ $ npm install --save promised-timeout
 import {timeout} from 'promised-timeout';
 
 let promise = new Promise((resolve, reject) => setTimeout(resolve, 1000, true));
-let error = await timeout(promise, {
+let error = await timeout({
+  promise,
   time: 1,
   error: new Error('operation timeout')
 }).catch((e) => e);
@@ -32,7 +33,7 @@ t.is(error, 'foo');
 
 ## API
 
-**timeout(promise, {timeout, error})**:Promise
+**timeout({promise, timeout, error})**:Promise
 
 > A timeout helper function resolves the provider promise but rejects if the operation takes too long.
 
