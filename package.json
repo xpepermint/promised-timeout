@@ -1,0 +1,40 @@
+{
+  "name": "promised-timeout",
+  "version": "0.1.0",
+  "description": "For limiting the time to resolve a promise.",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "ava": {
+    "files": [
+      "./tests/*.js",
+      "./tests/**/*.js"
+    ],
+    "concurrency": 5,
+    "failFast": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xpepermint/promised-timeout.git"
+  },
+  "keywords": [
+    "promise",
+    "timeout",
+    "delay",
+    "promised",
+    "as",
+    "with",
+    "resolve",
+    "reject"
+  ],
+  "bugs": {
+    "url": "https://github.com/xpepermint/promised-timeout/issues"
+  },
+  "homepage": "https://github.com/xpepermint/promised-timeout#readme",
+  "author": "Kristijan Sedlak (Xpepermint)",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "0.16.x"
+  }
+}
