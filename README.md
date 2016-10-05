@@ -8,7 +8,7 @@ This is an open source [npm](http://npmjs.com) package from [Node.js](http://nod
 
 ## Motivation
 
-Using the native `Promise.race` method for implementing the `Promise.timeout` function is not sufficient. The `Promise.race` doesn't clear the timer of the timeout promise after the actual promise resolves thus the process will wait until the timeout promise is also complete. This means that if you set the timeout to 1h and our promise is completes after 1min then the process will wait for 59min before it exits.
+Using the native `Promise.race` method for implementing the `Promise.timeout` function is not sufficient. The `Promise.race` doesn't clear the timer of the timeout promise after the actual promise resolves thus the process will wait until the timeout promise is also complete. This means that if you set the timeout to 1h and our promise completes after 1min, the process will wait for another 59min before it exits.
 
 ## Install
 
@@ -34,7 +34,7 @@ t.is(error, 'foo');
 
 **timeout(promise, {timeout, error})**:Promise
 
-> A timeout helper function resolves the provider promise but rejects if the operation takes longer then the provided `timeout`.
+> A timeout helper function resolves the provider promise but rejects if the operation takes too long.
 
 | Option | Type | Required | Default | Description
 |--------|------|----------|---------|------------
