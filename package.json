@@ -1,6 +1,6 @@
 {
   "name": "promised-timeout",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "For limiting the time to resolve a promise.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
