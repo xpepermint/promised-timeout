@@ -1,10 +1,13 @@
 {
   "name": "promised-timeout",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "For limiting the time to resolve a promise.",
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "ava"
+    "build": "tsc",
+    "test": "npm run build && ava",
+    "prepublish": "npm run build"
   },
   "ava": {
     "files": [
@@ -35,6 +38,7 @@
   "author": "Kristijan Sedlak (Xpepermint)",
   "license": "MIT",
   "devDependencies": {
-    "ava": "0.16.x"
+    "ava": "0.16.x",
+    "typescript": "2.0.x"
   }
 }

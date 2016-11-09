@@ -4,7 +4,7 @@
 
 > For limiting the time to resolve a promise.
 
-This is an open source [npm](http://npmjs.com) package from [Node.js](http://nodejs.org). The source code is available on [GitHub](https://github.com/xpepermint/promised-timeout) where you can also find our [issue tracker](https://github.com/xpepermint/promised-timeout/issues).
+This is a light weight open source package, written with [TypeScript](https://www.typescriptlang.org). The source code is available on [GitHub](https://github.com/xpepermint/promised-timeout) where you can also find our [issue tracker](https://github.com/xpepermint/promised-timeout/issues).
 
 ## Motivation
 
@@ -21,14 +21,11 @@ $ npm install --save promised-timeout
 ```js
 import {timeout} from 'promised-timeout';
 
-let promise = new Promise((resolve, reject) => setTimeout(resolve, 1000, true));
-let error = await timeout({
-  promise,
-  time: 1,
+await timeout({
+  promise, // your promise here
+  time: 100,
   error: new Error('operation timeout')
-}).catch((e) => e);
-
-t.is(error, 'foo');
+});
 ```
 
 ## API

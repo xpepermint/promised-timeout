@@ -3,7 +3,15 @@
 * operation takes longer then the provided `timeout`.
 */
 
-exports.timeout = function({promise, time=0, error=new Error()}={}) {
+export function timeout ({
+  promise, 
+  time = 0,
+  error = new Error()
+}: {
+  promise: Promise<any>, 
+  time: number, 
+  error: Error
+}): Promise<any> {
   let timer = null;
 
   if (!promise) throw new Error('no promise provided');

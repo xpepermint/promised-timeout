@@ -1,5 +1,5 @@
-const test = require('ava');
-const {timeout} = require('../src');
+import test from 'ava';
+import {timeout} from '../dist';
 
 test('timeout should resolve a promise', async t => {
   let promise = new Promise((resolve, reject) => setTimeout(resolve, 1000, true));
