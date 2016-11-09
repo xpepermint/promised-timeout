@@ -6,6 +6,10 @@
 
 This is a light weight open source package, written with [TypeScript](https://www.typescriptlang.org). The source code is available on [GitHub](https://github.com/xpepermint/promised-timeout) where you can also find our [issue tracker](https://github.com/xpepermint/promised-timeout/issues).
 
+## Related Projects
+
+* [promised-debounce](https://github.com/xpepermint/promised-debounce): For debounced function execution.
+
 ## Motivation
 
 Using the native `Promise.race` method for implementing the `Promise.timeout` function is not sufficient. The `Promise.race` doesn't clear the timer of the timeout promise after the actual promise resolves thus the process will wait until the timeout promise is also complete. This means that if you set the timeout to 1h and our promise completes after 1min, the process will wait for another 59min before it exits.
