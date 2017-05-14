@@ -19,7 +19,7 @@ export function timeout ({
   let sleep = time > 0
     ? new Promise((resolve, reject) => timer = setTimeout(reject, time, error))
     : null;
-
+  
   let run = promise.then((value) => {
     clearTimeout(timer);
     return value;
@@ -27,5 +27,11 @@ export function timeout ({
 
   return Promise.race(
     [run, sleep].filter(p => !!p)
-  );
+  ).then((res) => {
+    if (res === error) {
+      throw error;
+    } else {
+      return res;
+    }
+  });
 }

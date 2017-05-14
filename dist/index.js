@@ -15,6 +15,13 @@ function timeout({ promise, time = 0, error = new Error() }) {
         clearTimeout(timer);
         return value;
     });
-    return Promise.race([run, sleep].filter(p => !!p));
+    return Promise.race([run, sleep].filter(p => !!p)).then((res) => {
+        if (res === error) {
+            throw error;
+        }
+        else {
+            return res;
+        }
+    });
 }
 exports.timeout = timeout;
