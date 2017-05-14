@@ -4,23 +4,25 @@
 */
 
 export function timeout ({
-  promise, 
+  action, 
   time = 0,
   error = new Error()
 }: {
-  promise: Promise<any>, 
+  action: () => (any | Promise<any>),
   time: number, 
   error: Error
 }): Promise<any> {
   let timer = null;
 
-  if (!promise) throw new Error('no promise provided');
+  if (!action) throw new Error('no action provided');
 
   let sleep = time > 0
     ? new Promise((resolve, reject) => timer = setTimeout(reject, time, error))
     : null;
   
-  let run = promise.then((value) => {
+  let run = Promise.resolve().then(() => {
+    return action instanceof Promise ? action : action();
+  }).then((value) => {
     clearTimeout(timer);
     return value;
   });

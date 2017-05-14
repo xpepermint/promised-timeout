@@ -23,10 +23,10 @@ $ npm install --save promised-timeout
 ## Example
 
 ```js
-import {timeout} from 'promised-timeout';
+import { timeout } from 'promised-timeout';
 
 await timeout({
-  promise, // your promise here
+  action: () => new Promise(), // your promise here
   time: 100,
   error: new Error('operation timeout')
 });
@@ -34,13 +34,13 @@ await timeout({
 
 ## API
 
-**timeout({promise, timeout, error})**:Promise
+**timeout({ action, timeout, error })**:Promise
 
 > A timeout helper function resolves the provider promise but rejects if the operation takes too long.
 
 | Option | Type | Required | Default | Description
 |--------|------|----------|---------|------------
-| promise | Promise | Yes | - | A Promise object to resolve.
+| action | Function,Promise | Yes | - | A Promise object to resolve.
 | time | Integer | No | 0 | A time in milliseconds after the operation automatically rejects (`0` disables the timeout).
 | error | Error | No | new Error() | A custom error object to pass to the `reject` handler.
 
