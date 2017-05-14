@@ -9,7 +9,7 @@ function timeout({ action, time = 0, error = new Error() }) {
     if (!action)
         throw new Error('no action provided');
     let sleep = time > 0
-        ? new Promise((resolve, reject) => timer = setTimeout(reject, time, error))
+        ? new Promise((resolve, reject) => (timer = setTimeout(reject, time, error)))
         : null;
     let run = Promise.resolve().then(() => {
         return action instanceof Promise ? action : action();
