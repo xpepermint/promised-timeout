@@ -1,8 +1,9 @@
+"use strict";
 /*
 * A timeout helper function resolves the provider promise but rejects if the
 * operation takes longer then the provided `timeout`.
 */
-"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function timeout({ promise, time = 0, error = new Error() }) {
     let timer = null;
     if (!promise)
